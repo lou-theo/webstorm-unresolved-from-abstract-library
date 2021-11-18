@@ -2,12 +2,13 @@
   "name": "webstorm-unresolved-from-abstract-library",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "dev:my-lib": "npm run prebuild:my-lib && ng build my-lib --watch",
+    "prebuild:my-lib": "cd projects/my-lib/src && node prebuild.js",
+    "build:my-lib": "npm run prebuild:my-lib && ng build my-lib",
+
+    "dev:my-project": "ng serve --project my-project",
+
+    "prettier": "prettier --config .prettierrc \"**/*.{md,ts,json,html,scss,pug}\" --write"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +38,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^11.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
